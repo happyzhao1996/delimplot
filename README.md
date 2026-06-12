@@ -1,5 +1,9 @@
 # DelimPlot
 
+<p align="center">
+  <img src="assets/Icon.png" alt="DelimPlot icon" width="120">
+</p>
+
 DelimPlot is a standalone Windows desktop app for plotting columns from plain-text data files.
 
 It is designed for quick scientific and engineering plotting workflows: import delimited text, choose one X column and one or more Y series, tune the style, and save multiple graphs in a reusable project file.
@@ -47,7 +51,6 @@ The sample project `samples/defaultProject.delimplot` can be opened directly wit
 - `assets`: repository-level branding assets.
 - `samples`: example data files.
 - `screenshots`: release screenshots.
-- `artifacts`: ignored local publish output.
 
 ## Build
 
