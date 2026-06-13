@@ -13,6 +13,9 @@ Use this checklist before publishing a GitHub release.
 - Publish the macOS app bundle on Apple Silicon.
 - Test opening the macOS `.app` directly.
 - Test opening a `.delimplot` file with the macOS app bundle.
+- Publish the Linux AppImage and portable tarball on Ubuntu.
+- Test opening the Linux AppImage directly.
+- Test opening a `.delimplot` file with the Linux AppImage.
 
 ## Build Commands
 
@@ -31,9 +34,13 @@ Copy-Item artifacts\win-x64\DelimPlot.exe artifacts\release\DelimPlot-latest-win
 ./build/macos/package-osx-arm64.sh
 ```
 
+```bash
+./build/linux/package-linux-x64.sh
+```
+
 ## Release Artifact
 
-This release publishes Windows x64 and macOS arm64.
+This release publishes Windows x64, macOS arm64, and Linux x64.
 
 Attach these Windows files to the GitHub release:
 
@@ -50,6 +57,14 @@ artifacts/release/DelimPlot-0.1.0-osx-arm64.zip
 ```
 
 Attach the macOS zip to the GitHub release. The `.app` bundle is kept uncompressed in `artifacts/release` for local smoke testing.
+
+Attach these Linux files to the GitHub release:
+
+```text
+artifacts/release/DelimPlot-0.1.0-linux-x64.AppImage
+artifacts/release/DelimPlot-latest-linux-x64.AppImage
+artifacts/release/DelimPlot-0.1.0-linux-x64.tar.gz
+```
 
 ## Suggested Tag
 
