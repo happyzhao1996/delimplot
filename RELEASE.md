@@ -14,11 +14,14 @@ Use this checklist before publishing a GitHub release.
 ## Build Commands
 
 ```powershell
-.\.dotnet\dotnet.exe build DelimPlot.sln --configuration Release
+dotnet build DelimPlot.sln --configuration Release
 ```
 
 ```powershell
-.\.dotnet\dotnet.exe publish src\DelimPlot.App\DelimPlot.App.csproj --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=false -p:IncludeNativeLibrariesForSelfExtract=true -o artifacts\win-x64
+dotnet publish src\DelimPlot.App\DelimPlot.App.csproj --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=false -p:IncludeNativeLibrariesForSelfExtract=true -o artifacts\win-x64
+New-Item -ItemType Directory -Force -Path artifacts\release | Out-Null
+Copy-Item artifacts\win-x64\DelimPlot.exe artifacts\release\DelimPlot-0.1.0-win-x64.exe -Force
+Copy-Item artifacts\win-x64\DelimPlot.exe artifacts\release\DelimPlot-latest-win-x64.exe -Force
 ```
 
 ## Release Artifact

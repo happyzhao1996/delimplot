@@ -54,17 +54,19 @@ The sample project `samples/defaultProject.delimplot` can be opened directly wit
 
 ## Build
 
-The repository includes a local .NET SDK under `.dotnet/` for this workspace. If you already have .NET 8 installed, `dotnet` can be used instead.
+Install the .NET 8 SDK, then restore and build the solution:
+
+The .NET SDK and restored NuGet packages are not vendored in this repository.
 
 ```powershell
-.\.dotnet\dotnet.exe restore DelimPlot.sln
-.\.dotnet\dotnet.exe build DelimPlot.sln --configuration Release
+dotnet restore DelimPlot.sln
+dotnet build DelimPlot.sln --configuration Release
 ```
 
 ## Publish Windows Standalone
 
 ```powershell
-.\.dotnet\dotnet.exe publish src\DelimPlot.App\DelimPlot.App.csproj --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=false -p:IncludeNativeLibrariesForSelfExtract=true -o artifacts\win-x64
+dotnet publish src\DelimPlot.App\DelimPlot.App.csproj --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=false -p:IncludeNativeLibrariesForSelfExtract=true -o artifacts\win-x64
 ```
 
 The standalone executable is:
@@ -79,6 +81,8 @@ Release builds are published as:
 DelimPlot-0.1.0-win-x64.exe
 DelimPlot-latest-win-x64.exe
 ```
+
+These files are copied from the publish output before being attached to the GitHub release.
 
 ## Project Files
 
